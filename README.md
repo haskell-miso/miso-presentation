@@ -1,4 +1,4 @@
-# Miso
+# :ramen: miso
 
 A tasty haskell web framework
 
