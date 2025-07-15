@@ -1,6 +1,6 @@
 # :ramen: miso
 
-> This is a presentation that was given on `miso` in Seattle in 2018 at AWS
+> This is a presentation that was given on `miso` in April of 2018 at a meetup group hosted by AWS in Seattle.
 
 A tasty haskell web framework
 
