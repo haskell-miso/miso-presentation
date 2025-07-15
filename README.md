@@ -1,6 +1,6 @@
 # :ramen: miso
 
-> This was a presentation given on `miso` in Seattle in 2018 at AWS
+> This is a presentation that was given on `miso` in Seattle in 2018 at AWS
 
 A tasty haskell web framework
 
@@ -87,7 +87,7 @@ main = startApp App { model = 0
                     , events = M.singleton "click" False
                     , mountPoint = Nothing
                     , subs = []
-					}
+                    }
 ```
 
 ---
@@ -101,15 +101,15 @@ startApp App {..} = do
   viewRef <- newIORef (view model)
   forever $ do
     actions <- getEvents
-	currentModel <- readIORef modelRef
+    currentModel <- readIORef modelRef
     let newModel = foldr update currentModel actions
-	    newTree = view newModel
-	when (currentModel /= newModel) $ do
-  	  waitForAnimationFrame
-        oldTree <- readIORef viewRef
-        oldTree `diff` newTree
-	    writeIORef viewRef newTree
-	    writeIORef modelRef newModel
+        newTree = view newModel
+    when (currentModel /= newModel) $ do
+      waitForAnimationFrame
+      oldTree <- readIORef viewRef
+      oldTree `diff` newTree
+      writeIORef viewRef newTree
+      writeIORef modelRef newModel
 ```
 
 ---
@@ -129,16 +129,16 @@ data VTree a = VTree a [VTree a]
 ```haskell
 data VTree action where
   VNode :: { vType :: Text -- ^ Element type (i.e. "div", "a", "p")
-		   , vNs :: NS -- ^ HTML or SVG
-		   , vProps :: Props -- ^ Fields present on DOM Node
-		   , vKey :: Maybe Key -- ^ Key used for child swap patch
-		   , vChildren :: V.Vector (VTree action) -- ^ Child nodes
-		   , vNode :: IORef JSVal -- ^ pointer to DOM reference
-		   } -> VTree action
+           , vNs :: NS -- ^ HTML or SVG
+           , vProps :: Props -- ^ Fields present on DOM Node
+           , vKey :: Maybe Key -- ^ Key used for child swap patch
+           , vChildren :: V.Vector (VTree action) -- ^ Child nodes
+           , vNode :: IORef JSVal -- ^ pointer to DOM reference
+           } -> VTree action
   VText :: { vText :: Text -- ^ TextNode content
-		   , vTextNode :: IORef JSVal -- ^ pointer to DOM reference
-		   } -> VTree action
-  deriving Functor
+           , vTextNode :: IORef JSVal -- ^ pointer to DOM reference
+           } -> VTree action
+    deriving Functor
 ```
 
 ---
@@ -152,7 +152,7 @@ var vtree = { vtype : "vnode"
             , children : []
             , props : {}
             , ref : <DOMElement>
-			}
+            }
 ```
 
 ---
