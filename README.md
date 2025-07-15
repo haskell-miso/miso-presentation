@@ -1,5 +1,7 @@
 # :ramen: miso
 
+> This was a presentation given on `miso` in Seattle in 2018 at AWS
+
 A tasty haskell web framework
 
 ---
