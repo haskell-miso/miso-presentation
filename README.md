@@ -272,7 +272,7 @@ Works with swapped nodes as well.
   -> [ c b a ] <-
 ```
 
-Consruct map when nothing matches
+Construct map when nothing matches
 ```haskell
   -> [ e b k ] <-
   -> [ a b f ] <-
